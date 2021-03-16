@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group([   
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
 });
 Route:: post('category','CategoryController@add') ->name ('registrar');
 Route:: post('product','ProductController@add') ->name ('registrar');
@@ -26,3 +29,5 @@ Route:: get('usersproducts','UsersProductsController@getAll') ->name ('consultat
 Route:: get('category/{id}','categoryController@get') ->name ('mostrarporid');
 Route:: get('product/{id}','ProductController@get') ->name ('mostrarporid');
 Route:: get('usersproducts/{id}','usersproductsController@get') ->name ('mostrarporid');
+
+Route::get('users', 'AuthController@getall');
