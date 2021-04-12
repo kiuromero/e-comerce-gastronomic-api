@@ -15,20 +15,21 @@ class CategoryController extends Controller
             'data' => $chef,
             'message' => 'resource created'
         ], 201);
-
     }
-    public function getAll(){
+    public function getAll()
+    {
         $chef = Category::all();
         return response()->json([
             'data' => $chef,
-            'message' => 'resource created'
+            'message' => 'success'
         ], 201);
-}
-public function get($id){
-    $chef = category::get()->where('id_category','=',$id);  
-    return response()->json([
-        'data' => $chef,
-        'message' => 'resource created'
-    ], 201);
-}
+    }
+    public function get($id)
+    {
+        $chef = category::get()->where('id_category', '=', $id);
+        return response()->json([
+            'data' => $chef,
+            'message' => 'success'
+        ], 201);
+    }    
 }
