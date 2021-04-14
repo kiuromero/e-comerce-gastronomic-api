@@ -26,7 +26,7 @@ class CategoryController extends Controller
     }
     public function get($id)
     {
-        $chef = category::get()->where('id_category', '=', $id);
+        $chef = category::where('id_category', '=', $id)->get();
         return response()->json([
             'data' => $chef,
             'message' => 'success'
