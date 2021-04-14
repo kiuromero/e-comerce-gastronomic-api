@@ -26,7 +26,7 @@ class UsersProductsController extends Controller
     }
     public function get($id)
     {
-        $chef = UsersProducts::get()->where('id_product', '=', $id);
+        $chef = UsersProducts::where('id_product', '=', $id)->get();
         return response()->json([
             'data' => $chef,
             'message' => 'resource created'
