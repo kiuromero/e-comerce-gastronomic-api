@@ -30,10 +30,10 @@ class ProductController extends Controller
     }
     public function getProductByIdProduct($id)
     {
-        $product =  DB::table('product') 
-        ->join('class_product', 'product.id_pruduct', '=', 'class_product.id_product')
-        ->select('product.*', 'class_product.*')
-        ->where('id_pruduct', '=', $id)
+        $product =  DB::table('products') 
+        ->join('class_product', 'products.id_product', '=', 'class_product.id_product')
+        ->select('products.*', 'class_product.*')
+        ->where('products.id_product', '=', $id)
             ->get();
 
         return response()->json([
@@ -43,7 +43,7 @@ class ProductController extends Controller
     }
     public function getProductByIdCategory($id)
     {  
-        $product = product::get()->where('id_category', '=', $id);
+        $product = product::where('id_category', '=', $id)->get();
         return response()->json([
             'data' => $product,
             'message' => 'success'

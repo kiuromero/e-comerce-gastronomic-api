@@ -26,9 +26,9 @@ Route:: post('usersproducts','UsersProductsController@add') ->name ('registrar')
 Route:: get('category','CategoryController@getAll') ->name ('consultatodalatabla');
 Route:: get('product','ProductController@getAll') ->name ('consultatodalatabla');
 Route:: get('usersproducts','UsersProductsController@getAll') ->name ('consultatodalatabla');
-Route:: get('category/{id}','categoryController@get') ->name ('mostrarporid');
+Route:: get('category/{id}','CategoryController@get') ->name ('mostrarporid');
 Route:: get('product-class/{id}','ProductController@getProductByIdProduct') ->name ('mostrarporid');
 Route:: get('usersproducts/{id}','usersproductsController@get') ->name ('mostrarporid');
-Route:: get('product/{id}','ProductController@getProductByIdCategory') ->name ('ProductoByIdCategory');
+Route:: get('product-category/{id}','ProductController@getProductByIdCategory') ->name ('getProductByIdCategory');
 
 Route::get('users', 'AuthController@getall');
