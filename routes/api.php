@@ -30,6 +30,8 @@ Route::get('category/{id}', 'CategoryController@get')->name('mostrarporid');
 Route::get('product-class/{id}', 'ProductController@getProductByIdProduct')->name('mostrarporid');
 Route::get('usersproducts/{id}', 'usersproductsController@get')->name('mostrarporid');
 Route::get('product-category/{id}', 'ProductController@getProductByIdCategory')->name('getProductByIdCategory');
+Route::get('chef-detail/{id}', 'ChefController@getChefById')->name('getChefById');
+Route::get('chef-list', 'ChefController@getAll')->name('getAll');
 
 Route::post('user/create', 'UserController@create');
 Route::get('users', 'AuthController@getall');
