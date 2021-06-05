@@ -33,6 +33,7 @@ Route::get('product-category/{id}', 'ProductController@getProductByIdCategory')-
 Route::get('chef-detail/{id}', 'ChefController@getChefById')->name('getChefById');
 Route::get('chef-list', 'ChefController@getAll')->name('getAll');
 Route::get('products-client/{id}', 'TransactionPaymentController@getPoductsByPayment')->name('getPoductsByPayment');
+Route::post('message-send', 'MessaggeController@create');
 
 Route::post('user/create', 'UserController@create');
 Route::get('users', 'AuthController@getall');
