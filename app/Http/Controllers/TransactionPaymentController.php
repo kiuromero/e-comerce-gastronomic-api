@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TransactionPayment;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class TransactionPaymentController extends Controller
 {
     public function webHookTransaction(Request $request)
     {
+        Log::info('repuesta epayco: '.$request);
         $messageResponse = "not saved payment";
         if($request->x_cod_transaction_state == '1'){
             $payment = TransactionPayment::create($request->all());
