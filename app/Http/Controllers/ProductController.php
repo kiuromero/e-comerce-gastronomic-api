@@ -36,8 +36,17 @@ class ProductController extends Controller
         ->where('products.id_product', '=', $id)
             ->get();
 
+        $chef_products =  DB::table('chef_product') 
+        ->join('chef', 'chef_product.id_chef', '=', 'chef.id')
+        ->select('chef.*')
+        ->where('chef_product.id_product', '=', $id)
+            ->get();
+
         return response()->json([
-            'data' => $product,
+            'data' => array(
+                'product' => $product,
+                'chef' => $chef_products
+            ),
             'message' => 'success'
         ], 201);
     }
